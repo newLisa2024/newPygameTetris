@@ -1,5 +1,6 @@
 import pygame
 pygame.init()
+import time
 
 window_size = (800, 600)
 screen = pygame.display.set_mode(window_size)
@@ -22,13 +23,14 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEMOTION:
             mouseX, mouseY = pygame.mouse.get_pos()
-            image_rect1.x = mouseX
-            image_rect1.y = mouseY
+            image_rect1.x = mouseX - 50
+            image_rect1.y = mouseY - 50
 
     if image_rect1.colliderect(image_rect2):
         print('Произошло столкновение')
+        time.sleep(1)
 
    # keys = pygame.key.get_pressed()
    # if keys[pygame.K_LEFT]:
